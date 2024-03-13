@@ -4,7 +4,6 @@
         <servlet-name>Controller</servlet-name>
         <servlet-class>controller.author.LoginController</servlet-class>
     </servlet>
-
     <servlet>
         <servlet-name>TimetableController</servlet-name>
         <servlet-class>controller.lecturer.TimeTableController</servlet-class>
@@ -13,12 +12,18 @@
         <servlet-name>AttTakeController</servlet-name>
         <servlet-class>controller.lecturer.AttTakeController</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>SearchLecturer</servlet-name>
+        <servlet-class>controller.author.SearchLecturerBycode</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewServlet</servlet-name>
+        <servlet-class>controller.author.NewServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>TimetableController</servlet-name>
         <url-pattern>/lecturer/timetable</url-pattern>
@@ -27,5 +32,12 @@
         <servlet-name>AttTakeController</servlet-name>
         <url-pattern>/lecturer/att</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>SearchLecturer</servlet-name>
+        <url-pattern>/searchLecturer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet</servlet-name>
+        <url-pattern>/NewServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
