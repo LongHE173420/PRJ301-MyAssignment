@@ -85,7 +85,7 @@
             </div>
 
             <div>
-                <label for="email">Gender:</label>
+                <label for="gender">Gender:</label>
                 <c:if test="${lecturer.lgender == 'true'}">
                     <p id="gender">Male</p>
                 </c:if>
