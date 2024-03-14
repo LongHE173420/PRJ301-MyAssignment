@@ -20,6 +20,10 @@
         <servlet-name>SearchStudentByCode</servlet-name>
         <servlet-class>controller.author.SearchStudentByCode</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GradeTableController</servlet-name>
+        <servlet-class>controlller.student.GradeTableController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -36,9 +40,12 @@
         <servlet-name>SearchLecturer</servlet-name>
         <url-pattern>/searchLecturer</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>SearchStudentByCode</servlet-name>
         <url-pattern>/searchStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GradeTableController</servlet-name>
+        <url-pattern>/student/grade</url-pattern>
     </servlet-mapping>
 </web-app>
