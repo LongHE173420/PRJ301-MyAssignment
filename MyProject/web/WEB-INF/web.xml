@@ -17,8 +17,8 @@
         <servlet-class>controller.author.SearchLecturerBycode</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>NewServlet</servlet-name>
-        <servlet-class>controller.author.NewServlet</servlet-class>
+        <servlet-name>SearchStudentByCode</servlet-name>
+        <servlet-class>controller.author.SearchStudentByCode</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
@@ -36,8 +36,9 @@
         <servlet-name>SearchLecturer</servlet-name>
         <url-pattern>/searchLecturer</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
-        <servlet-name>NewServlet</servlet-name>
-        <url-pattern>/NewServlet</url-pattern>
+        <servlet-name>SearchStudentByCode</servlet-name>
+        <url-pattern>/searchStudent</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package dal;
+
 import entity.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,13 +11,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author Admin
  */
-public class StudentDBContext extends DBContext<Student>{
+public class StudentDBContext extends DBContext<Student> {
 
-    public Student getStdByID(int id){
+    public Student getStdByID(int id) {
         Student s = null;
         try {
             String sql = "SELECT sid,scode,sname,sdob,sgender,sphone,smail,saddress FROM Student WHERE sid = ?;";
@@ -24,10 +26,9 @@ public class StudentDBContext extends DBContext<Student>{
             stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
 
-           
             if (rs.next()) {
-                s = new Student(); 
-               
+                s = new Student();
+
                 s.setSid(rs.getInt("sid"));
                 s.setSname(rs.getString("sname"));
                 s.setScode(rs.getString("scode"));
@@ -42,7 +43,33 @@ public class StudentDBContext extends DBContext<Student>{
         }
         return s;
     }
-    
+
+    public Student getStudentByCode(String code) {
+        Student s = null;
+        try {
+            String sql = "SELECT sid,scode,sname,sdob,sgender,sphone,smail,saddress FROM Student WHERE scode = ?;";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, code);
+            ResultSet rs = stm.executeQuery();
+
+            if (rs.next()) {
+                s = new Student();
+
+                s.setSid(rs.getInt("sid"));
+                s.setScode(rs.getString("scode"));
+                s.setSname(rs.getString("sname"));
+                s.setSgender(rs.getBoolean("sgender"));
+                s.setSmail(rs.getString("smail"));
+                s.setSphone(rs.getString("sphone"));
+                s.setSaddress(rs.getString("saddress"));
+                s.setSdob(rs.getDate("sdob"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LecturerDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
+
     @Override
     public ArrayList<Student> list() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -67,5 +94,5 @@ public class StudentDBContext extends DBContext<Student>{
     public Student get(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }
