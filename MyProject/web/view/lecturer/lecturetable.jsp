@@ -15,7 +15,12 @@
         </style>
     </head>
     <body>
-        
+        <form action="timetable" method="POST">
+            ID: <input type="text" value="${param.id}" name="id"/><br/>
+            From: <input type="date" name="from" value="${requestScope.from}"/> To:
+            <input type="date" name="to" value="${requestScope.to}"/><br/>          
+            <input type="submit" value="View"/>
+        </form>
         <div>Lecturer: ${requestScope.lecturer.lname}</div>
         <table border="1px">
             <tr>
