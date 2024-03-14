@@ -49,13 +49,13 @@ public class TimeTableController extends BaseRequiredAuthenticationController {
         java.sql.Date to = null;
 
         Date today = new Date();
-        if (raw_from == null) {
+        if (raw_from == null||raw_from.isEmpty()) {
             from = DateTimeHelper.convertUtilDateToSqlDate(DateTimeHelper.getWeekStart(today));
         } else {
             from = java.sql.Date.valueOf(raw_from);
         }
 
-        if (raw_to == null) {
+        if (raw_to == null||raw_to.isEmpty()) {
             to = DateTimeHelper.convertUtilDateToSqlDate(
                     DateTimeHelper.addDaysToDate(DateTimeHelper.getWeekStart(today), 6));
         } else {
