@@ -67,10 +67,10 @@ public class SearchLecturerBycode extends HttpServlet {
         int id;
 
         if (raw_lid == null || raw_lid.isEmpty() || !raw_lid.matches("\\d+")) {
-            // Nếu lid là null, rỗng hoặc không phải là số nguyên, gán id = 0
+          
             id = 0;
         } else {
-            // Chuyển raw_lid thành số nguyên
+            
             id = Integer.parseInt(raw_lid);
         }
 
