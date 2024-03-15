@@ -48,7 +48,7 @@ public class GradeDBContext extends DBContext<Grade> {
 
                 Assiment assiment = new Assiment();
                 assiment.setAsid(rs.getInt("asid"));
-                assiment.setName(rs.getString("assname"));
+                assiment.setName(rs.getString("name"));
                 assiment.setWeight(rs.getFloat("weight"));
                 assiment.setSubid(sub);
 
