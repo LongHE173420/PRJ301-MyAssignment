@@ -38,7 +38,7 @@
                     <td>${grade.stid.sid}</td>
                     <td>${grade.stid.sname}</td>
                     <td>${grade.eid.asid.subid.subname}</td>
-                    <td>${grade.score}</td>
+                    <td>${grade.overall}</td>
                 </tr>
             </c:forEach>
         </tbody>
