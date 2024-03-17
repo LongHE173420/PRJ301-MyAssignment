@@ -72,17 +72,13 @@ public class TimeTableController extends BaseRequiredAuthenticationController {
         
         LessionDBContext lessDB = new LessionDBContext();
         ArrayList<Lession> lessions = lessDB.getLessionBy(lid, from, to);
-//        ArrayList<Lession> stdLessions = lessDB.getStdLessionBy(lid,from,to);
+
         
         LecturerDBContext ldb = new LecturerDBContext();
         Lecturer lecturer = ldb.getLecturerById(lid);
         
         StudentDBContext stDB = new StudentDBContext();
-////        Student student = stDB.getStdByID(lid);
         
-        
-//        req.setAttribute("student", student);
-//        req.setAttribute("stdLessions", stdLessions);
         req.setAttribute("lecturer", lecturer);
         req.setAttribute("slots", slots);
         req.setAttribute("dates", dates);
