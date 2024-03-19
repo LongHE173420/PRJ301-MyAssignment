@@ -15,7 +15,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>pageviewcounter</servlet-name>
-        <url-pattern>/page/*</url-pattern>
+        <url-pattern>/page</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>pageviewdisplay</servlet-name>

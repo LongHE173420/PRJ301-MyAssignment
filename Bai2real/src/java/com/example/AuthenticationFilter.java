@@ -23,7 +23,7 @@ public class AuthenticationFilter implements Filter {
         if (httpRequest.getSession().getAttribute("user") != null) {
             // Nếu đã đăng nhập, cho phép tiếp tục xử lý request
             chain.doFilter(request, response);
-        } else {
+        } else  {
             // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.jsp");
         }

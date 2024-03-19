@@ -54,10 +54,9 @@ public class PageViewDisplayServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         ServletContext context = getServletContext();
-    Integer viewCount = (Integer) context.getAttribute("viewCount");
-    request.setAttribute("viewCount", viewCount);    
-    request.getRequestDispatcher("/pageView.jsp").forward(request, response);
+         Integer viewCount = (Integer) request.getServletContext().getAttribute("viewCount");
+        request.setAttribute("viewCount", viewCount);    
+        request.getRequestDispatcher("/pageView.jsp").forward(request, response);
     } 
 
     /** 

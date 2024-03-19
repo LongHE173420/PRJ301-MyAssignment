@@ -4,25 +4,28 @@
  */
 package count;
 
-/**
- *
- * @author Admin
- */
-import jakarta.servlet.ServletContextEvent;
-import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.ServletRequestEvent;
+import jakarta.servlet.ServletRequestListener;
 import jakarta.servlet.annotation.WebListener;
 
 @WebListener
-public class PageViewListener implements ServletContextListener {
+public class PageViewListener implements ServletRequestListener {
 
     @Override
-    public void contextInitialized(ServletContextEvent sce) {       
-        sce.getServletContext().setAttribute("viewCount", 0);
+    public void requestInitialized(ServletRequestEvent sre) {
+        Integer viewCount = (Integer) sre.getServletContext().getAttribute("viewCount");
+        if (viewCount == null) {
+            viewCount = 1;
+        } else {
+            viewCount++;
+        }
+        sre.getServletContext().setAttribute("viewCount", viewCount);
     }
 
     @Override
-    public void contextDestroyed(ServletContextEvent sce) {
-        
+    public void requestDestroyed(ServletRequestEvent sre) {
+        // Not used in this case
     }
 }
+
 
