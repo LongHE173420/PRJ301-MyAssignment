@@ -3,20 +3,12 @@
     
     <listener>
         <listener-class> count.PageViewListener</listener-class>
-    </listener>
-    
-    <servlet>
-        <servlet-name>pageviewcounter</servlet-name>
-        <servlet-class>controlller.PageViewCounterServlet</servlet-class>
-    </servlet>
+        
+    </listener>    
     <servlet>
         <servlet-name>pageviewdisplay</servlet-name>
         <servlet-class>controlller.PageViewDisplayServlet</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>pageviewcounter</servlet-name>
-        <url-pattern>/page</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>pageviewdisplay</servlet-name>
         <url-pattern>/pageview</url-pattern>

@@ -15,7 +15,7 @@ public class PageViewListener implements ServletRequestListener {
     public void requestInitialized(ServletRequestEvent sre) {
         Integer viewCount = (Integer) sre.getServletContext().getAttribute("viewCount");
         if (viewCount == null) {
-            viewCount = 1;
+            viewCount = 0;
         } else {
             viewCount++;
         }
