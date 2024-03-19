@@ -14,7 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import jakarta.servlet.jsp.JspException;
 import jakarta.servlet.jsp.JspWriter;
-import jakarta.servlet.jsp.tagext.JspFragment;
 import jakarta.servlet.jsp.tagext.SimpleTagSupport;
 
 public class ConvertToVnDateTag extends SimpleTagSupport {
@@ -36,10 +35,6 @@ public class ConvertToVnDateTag extends SimpleTagSupport {
             Date date = inputFormat.parse(value);
             String formattedDate = outputFormat.format(date);
             out.print(formattedDate);
-            JspFragment f=getJspBody();
-            if(f!=null){
-                f.invoke(out);
-            }
         } catch (ParseException e) {
             throw new JspException("Error: " + e.getMessage());
         }
