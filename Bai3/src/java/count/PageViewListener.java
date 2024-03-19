@@ -16,14 +16,13 @@ import jakarta.servlet.annotation.WebListener;
 public class PageViewListener implements ServletContextListener {
 
     @Override
-    public void contextInitialized(ServletContextEvent sce) {
-        // Khởi tạo giá trị viewCount và lưu vào ServletContext hoặc ApplicationContext
+    public void contextInitialized(ServletContextEvent sce) {       
         sce.getServletContext().setAttribute("viewCount", 0);
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        // Clean up nếu cần
+        
     }
 }
 

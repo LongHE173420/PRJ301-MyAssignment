@@ -58,19 +58,13 @@ public class PageViewCounterServlet extends HttpServlet {
             throws ServletException, IOException {
         ServletContext context = getServletContext();
         Integer viewCount = (Integer) context.getAttribute("viewCount");
-
-        // Tăng viewCount lên 1 mỗi lần có yêu cầu đến trang
         if (viewCount == null) {
-            viewCount = 1; // Nếu chưa có giá trị, set giá trị là 1
+            viewCount = 1;
         } else {
-            viewCount++; // Nếu đã có giá trị, tăng lên 1
+            viewCount++;
         }
-
-        // Cập nhật lại giá trị trong ServletContext
         context.setAttribute("viewCount", viewCount);
-//        request.setAttribute("view", viewCount);
-//        request.getRequestDispatcher("/pageview").forward(request, response);
-    response.sendRedirect(request.getContextPath()+"/pageview");
+        response.sendRedirect(request.getContextPath() + "/pageview");
     }
 
     /**

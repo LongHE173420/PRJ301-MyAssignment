@@ -57,7 +57,7 @@ public class PageViewDisplayServlet extends HttpServlet {
          ServletContext context = getServletContext();
     Integer viewCount = (Integer) context.getAttribute("viewCount");
     request.setAttribute("viewCount", viewCount);    
-   response.getWriter().print(viewCount);
+    request.getRequestDispatcher("/pageView.jsp").forward(request, response);
     } 
 
     /** 
