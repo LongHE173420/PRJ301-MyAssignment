@@ -5,8 +5,10 @@
 package controlller.student;
 
 import dal.GradeDBContext;
+import dal.StudentDBContext;
 import dal.SubjectDBContext;
 import entity.Grade;
+import entity.Student;
 import entity.Subject;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -80,7 +82,14 @@ public class GradeTableController extends HttpServlet {
         // Retrieve student and subject IDs from request parameters
         int stId = Integer.parseInt(request.getParameter("stId"));
         int subId = Integer.parseInt(request.getParameter("subId"));
-
+        
+        StudentDBContext stuDB=new StudentDBContext();
+        Student stu=stuDB.getStdByID(stId);
+        request.setAttribute("stu", stu);
+        
+        SubjectDBContext subDB=new SubjectDBContext();
+        Subject sub=subDB.getSubjectById(subId);
+        request.setAttribute("sub", sub);
         // Retrieve grades based on student and subject IDs
         GradeDBContext gradeDBContext = new GradeDBContext();
         ArrayList<Grade> grades = gradeDBContext.getGradeBySid(stId, subId);

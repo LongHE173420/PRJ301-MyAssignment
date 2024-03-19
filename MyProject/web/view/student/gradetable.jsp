@@ -26,6 +26,8 @@
 </head>
 <body>
     <h2>Grade Table</h2>
+    <h3>Student:${stu.sname}</h3>
+    <h3>Subject:${sub.subname}</h3>
     <table>
         <thead>
             <tr style="color: white">
