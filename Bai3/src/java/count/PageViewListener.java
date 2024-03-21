@@ -4,6 +4,8 @@
  */
 package count;
 
+import dal.CountDBContext;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletRequestEvent;
 import jakarta.servlet.ServletRequestListener;
 import jakarta.servlet.annotation.WebListener;
@@ -13,13 +15,13 @@ public class PageViewListener implements ServletRequestListener {
 
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
-        Integer viewCount = (Integer) sre.getServletContext().getAttribute("viewCount");
-        if (viewCount == null) {
-            viewCount = 0;
-        } else {
-            viewCount++;
-        }
-        sre.getServletContext().setAttribute("viewCount", viewCount);
+       CountDBContext count=new CountDBContext();
+       int viewCount=count.getViewCount();
+       viewCount++;
+       count.insertCount(viewCount);
+       sre.getServletContext().setAttribute("viewCount", viewCount);
+        
+        
     }
 
     @Override
@@ -27,5 +29,3 @@ public class PageViewListener implements ServletRequestListener {
         // Not used in this case
     }
 }
-
-
